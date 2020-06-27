@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
+import {anotherName} from './actions/myaction';
 
 function App(props) {
   return (
     <div className="App">
       <h3>I am App component</h3>
       <h3>my name is {props.myname}</h3> 
-      <button onClick={() => props.changeName('Suresh')}>Click Me</button>
+      <button onClick={() => props.changeName()}>Click Me</button>
     </div>
   );
 }
@@ -20,12 +21,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) =>{
     return {
-      changeName: (name) =>{
-        dispatch({
-          type: 'CHANGE_NAME',
-          payload: name
-        })
-      }
+      changeName: () =>{ dispatch(anotherName())}
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);
