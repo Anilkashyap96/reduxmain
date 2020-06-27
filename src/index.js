@@ -8,7 +8,9 @@ import { Provider } from 'react-redux';
 import reducer from './reducers/reducer';
 
 //create storage and pass the reduder
-const store = createStore(reducer);
+//+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() is for redux chrome extension
+//to give the permission of accesssing central storage
+const store = createStore(reducer, +  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(<Provider store={store}><App /></Provider>,  document.getElementById('root'));
 
