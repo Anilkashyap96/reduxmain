@@ -25,3 +25,10 @@ export const anotherName = () => {
         })
     }
 }
+
+export const addWish = () => {
+    return {
+            type: 'ADD_WISH',
+            payload: 'code'
+    }
+}
